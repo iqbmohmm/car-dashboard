@@ -1,11 +1,15 @@
 package com.sapient.hackathon.controller;
 
-import com.sapient.hackathon.entity.BaseEntity;
 import com.sapient.hackathon.entity.SafetyConcernEntity;
-import com.sapient.hackathon.service.BaseService;
 import com.sapient.hackathon.service.SafetyConcernService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -16,31 +20,26 @@ public class SafetyConcernController {
     @Autowired
     SafetyConcernService safetyConcernService;
 
-    @CrossOrigin
     @GetMapping("/test")
     public String test() {
         return "test Get mapping";
     }
 
-    @CrossOrigin
     @GetMapping("/byId/{customerId}")
     public SafetyConcernEntity getById(@PathVariable(value = "customerId") String customerId) {
         return safetyConcernService.getById(customerId);
     }
 
-    @CrossOrigin
     @GetMapping("/getAll")
     public List<SafetyConcernEntity> getAll() {
         return safetyConcernService.getAll();
     }
 
-    @CrossOrigin
     @PostMapping
     public SafetyConcernEntity create(@RequestBody SafetyConcernEntity baseEntity) {
         return safetyConcernService.create(baseEntity);
     }
 
-    @CrossOrigin
     @PutMapping
     public SafetyConcernEntity update(@RequestBody SafetyConcernEntity baseEntity) {
         return safetyConcernService.update(baseEntity);
