@@ -16,26 +16,31 @@ public class SafetyConcernController {
     @Autowired
     SafetyConcernService safetyConcernService;
 
+    @CrossOrigin
     @GetMapping("/test")
     public String test() {
         return "test Get mapping";
     }
 
+    @CrossOrigin
     @GetMapping("/byId/{customerId}")
     public SafetyConcernEntity getById(@PathVariable(value = "customerId") String customerId) {
         return safetyConcernService.getById(customerId);
     }
 
-    @GetMapping("getAll")
+    @CrossOrigin
+    @GetMapping("/getAll")
     public List<SafetyConcernEntity> getAll() {
         return safetyConcernService.getAll();
     }
 
+    @CrossOrigin
     @PostMapping
     public SafetyConcernEntity create(@RequestBody SafetyConcernEntity baseEntity) {
         return safetyConcernService.create(baseEntity);
     }
 
+    @CrossOrigin
     @PutMapping
     public SafetyConcernEntity update(@RequestBody SafetyConcernEntity baseEntity) {
         return safetyConcernService.update(baseEntity);
