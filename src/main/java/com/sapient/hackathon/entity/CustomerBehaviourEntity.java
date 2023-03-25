@@ -1,12 +1,18 @@
 package com.sapient.hackathon.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity(name = "CustomerBehaviour")
 @Data
+@Builder(toBuilder = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class CustomerBehaviourEntity {
 
     @Id
@@ -30,6 +36,8 @@ public class CustomerBehaviourEntity {
     private String playListPreference;
     @Column(name="device_preference")
     private String devicePreference;
+    @Column(name="seat_belt_usage_list")
+    private String seatBeltUsageList;
     @Column(name="seat_belt_usage")
     private String seatBeltUsage;
     @Column(name="speeding_incident")
@@ -70,5 +78,8 @@ public class CustomerBehaviourEntity {
     private String laneChange;
     @Column(name="gps_location")
     private String gpsLocation;
+
+    @Column(name="radio_preference")
+    private String radioPreference;
 
 }

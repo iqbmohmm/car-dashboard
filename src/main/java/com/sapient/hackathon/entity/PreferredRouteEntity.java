@@ -1,12 +1,18 @@
 package com.sapient.hackathon.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity(name = "PreferredRoute")
 @Data
+@Builder(toBuilder = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class PreferredRouteEntity {
 
     @Id

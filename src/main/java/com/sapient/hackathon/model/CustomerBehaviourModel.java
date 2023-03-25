@@ -15,6 +15,7 @@ public class CustomerBehaviourModel {
     private String instrumentPreference;
     private String playListPreference;
     private String devicePreference;
+    private String seatBeltUsageList;
     private String seatBeltUsage;
     private String speedingIncident;
     private String freqHardBreaking;
