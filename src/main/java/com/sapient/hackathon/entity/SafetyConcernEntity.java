@@ -1,11 +1,13 @@
 package com.sapient.hackathon.entity;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity(name = "SafetyConcern")
 @Data
+@Builder(toBuilder = true)
 public class SafetyConcernEntity {
 
     @Id
@@ -16,19 +18,22 @@ public class SafetyConcernEntity {
     private String customerId;
 
     @Column(name="seat_belt_usage")
-    private int seatBeltUsage;
+    private String seatBeltUsage;
 
     @Column(name="speeding_incident")
-    private int speedingIncident;
+    private String speedingIncident;
 
     @Column(name="freq_hard_braking")
-    private int freqHardBraking;
+    private String freqHardBraking;
 
     @Column(name="freq_hard_acceleration")
-    private int freqHardAcceleration;
+    private String freqHardAcceleration;
 
     @Column(name="freq_lane_changes")
-    private int freqLaneChanges;
+    private String freqLaneChanges;
+
+    @Column(name="time_of_day")
+    private String timeOfDay;
 
     @Column(name="weather_condition")
     private String weatherCondition;
@@ -38,6 +43,9 @@ public class SafetyConcernEntity {
 
     @Column(name="road_type")
     private String roadType;
+
+    @Column(name="avg_time_bet_maintenance")
+    private String avgTimeBetMaintenance;
 
 
 }

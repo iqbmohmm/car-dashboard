@@ -30,4 +30,8 @@ public class SafetyConcernService {
     public SafetyConcernEntity update(SafetyConcernEntity baseEntity) {
         return safetyConcernRepository.save(baseEntity);
     }
+
+    public List<SafetyConcernEntity> create(List<SafetyConcernEntity> baseEntity) {
+        return safetyConcernRepository.saveAll(baseEntity);
+    }
 }
