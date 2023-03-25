@@ -1,37 +1,21 @@
 package com.sapient.hackathon.service;
 
-import com.sapient.hackathon.entity.BaseEntity;
-import com.sapient.hackathon.entity.SafetyConcernEntity;
-import com.sapient.hackathon.repository.BaseRepository;
+import com.sapient.hackathon.model.SafetyConcernModel;
 import com.sapient.hackathon.repository.SafetyConcernRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class SafetyConcernService {
 
     @Autowired
+    private ModelMapper modelMap;
+    @Autowired
     private SafetyConcernRepository safetyConcernRepository;
 
-    public SafetyConcernEntity getById(String id) {
-        return safetyConcernRepository.findByCustomerId(id);
+    public SafetyConcernModel getById(String id) {
+        return modelMap.map(safetyConcernRepository.findByCustomerId(id),SafetyConcernModel.class);
     }
 
-    public List<SafetyConcernEntity> getAll() {
-        return safetyConcernRepository.findAll();
-    }
-
-    public SafetyConcernEntity create(SafetyConcernEntity baseEntity) {
-        return safetyConcernRepository.save(baseEntity);
-    }
-
-    public SafetyConcernEntity update(SafetyConcernEntity baseEntity) {
-        return safetyConcernRepository.save(baseEntity);
-    }
-
-    public List<SafetyConcernEntity> create(List<SafetyConcernEntity> baseEntity) {
-        return safetyConcernRepository.saveAll(baseEntity);
-    }
-}
+   }

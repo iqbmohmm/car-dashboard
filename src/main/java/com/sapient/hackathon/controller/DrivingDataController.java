@@ -1,7 +1,7 @@
 package com.sapient.hackathon.controller;
 
-import com.sapient.hackathon.model.SafetyConcernModel;
-import com.sapient.hackathon.service.SafetyConcernService;
+import com.sapient.hackathon.model.DrivingDataModel;
+import com.sapient.hackathon.service.DrivingDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/safetyconcern")
-public class SafetyConcernController {
+@RequestMapping("/drivingData")
+public class DrivingDataController {
 
     @Autowired
-    SafetyConcernService safetyConcernService;
+    DrivingDataService drivingDataService;
 
     @GetMapping("/test")
     public String test() {
@@ -21,9 +21,8 @@ public class SafetyConcernController {
     }
 
     @GetMapping("/byId/{customerId}")
-    public SafetyConcernModel getById(@PathVariable(value = "customerId") String customerId) {
-        return safetyConcernService.getById(customerId);
+    public DrivingDataModel getById(@PathVariable(value = "customerId") String customerId) {
+        return drivingDataService.getById(customerId);
     }
-
 
 }

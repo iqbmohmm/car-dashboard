@@ -1,20 +1,21 @@
 package com.sapient.hackathon.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity(name = "SafetyConcern")
 @Data
 @Builder(toBuilder = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class SafetyConcernEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name="customer_id")
+    @Column(name="customer_id",unique = true,nullable = false)
     private String customerId;
 
     @Column(name="seat_belt_usage")
