@@ -17,5 +17,4 @@ public class PreferredRouteService {
     public PreferredRouteModel getById(String id) {
         return modelMap.map(preferredRouteRepository.findByCustomerId(id),PreferredRouteModel.class);
     }
-
-   }
+}
