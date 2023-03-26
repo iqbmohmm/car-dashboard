@@ -23,5 +23,7 @@ public class SafetyConcernModel {
 
     private String roadType;
 
+    private String avgTimeBetMaintenance;
+
 
 }
